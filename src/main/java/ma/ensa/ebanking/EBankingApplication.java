@@ -13,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.util.Date;
+import java.util.UUID;
 import java.util.stream.Stream;
 
 @SpringBootApplication
@@ -38,6 +39,7 @@ public class EBankingApplication {
             // Vérification des données insérées
             customerRepository.findAll().forEach(customer -> {
                 CurrentAccount currentAccount = new CurrentAccount();
+                currentAccount.setId(UUID.randomUUID().toString());
                 currentAccount.setBalance(Math.random()*90000);
                 currentAccount.setCreatedAt(new Date());
                 currentAccount.setStatus(AccountStatus.CREATED);
@@ -45,6 +47,7 @@ public class EBankingApplication {
                 currentAccount.setOverDraft(9000);
                 bankAccountRepository.save(currentAccount);
                 SavingAccount savingAccount = new SavingAccount();
+                savingAccount.setId(UUID.randomUUID().toString());
                 savingAccount.setBalance(Math.random()*90000);
                 savingAccount.setCreatedAt(new Date());
                 savingAccount.setStatus(AccountStatus.CREATED);

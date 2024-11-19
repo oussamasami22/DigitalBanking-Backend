@@ -14,7 +14,7 @@ import java.util.List;
 @Data @NoArgsConstructor @AllArgsConstructor
 public class BankAccount {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
     private Date createdAt;
     private double balance;
     @Enumerated(EnumType.STRING)
