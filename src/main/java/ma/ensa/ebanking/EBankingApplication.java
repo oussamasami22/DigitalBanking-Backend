@@ -54,12 +54,13 @@ public class EBankingApplication {
 
             });
             bankAccountRepository.findAll().forEach(account -> {
-                for(int i=0 ; i<5; i++) {
+                for(int i=0 ; i<10; i++) {
                     AccountOperation accountOperation = new AccountOperation();
                     accountOperation.setAmount(Math.random() * 12000);
                     accountOperation.setDescription("description");
                     accountOperation.setOperationDate(new Date());
-                    accountOperation.setOperationType();
+                    accountOperation.setOperationType(Math.random() > 0.5? OperationType.CREDIT:OperationType.DEBIT);
+                    accountOperation.setBankAccount(account);
                     accountOperationRepository.save(accountOperation);
                 }
                     }
