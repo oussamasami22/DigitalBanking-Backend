@@ -1,9 +1,6 @@
 package ma.ensa.ebanking;
 
-import ma.ensa.ebanking.entities.AccountStatus;
-import ma.ensa.ebanking.entities.CurrentAccount;
-import ma.ensa.ebanking.entities.Customer;
-import ma.ensa.ebanking.entities.SavingAccount;
+import ma.ensa.ebanking.entities.*;
 import ma.ensa.ebanking.repositories.AccountOperationRepository;
 import ma.ensa.ebanking.repositories.BankAccountRepository;
 import ma.ensa.ebanking.repositories.CustomerRepository;
@@ -56,6 +53,18 @@ public class EBankingApplication {
                 bankAccountRepository.save(savingAccount);
 
             });
+            bankAccountRepository.findAll().forEach(account -> {
+                for(int i=0 ; i<5; i++) {
+                    AccountOperation accountOperation = new AccountOperation();
+                    accountOperation.setAmount(Math.random() * 12000);
+                    accountOperation.setDescription("description");
+                    accountOperation.setOperationDate(new Date());
+                    accountOperation.setOperationType();
+                    accountOperationRepository.save(accountOperation);
+                }
+                    }
+            );
+
         };
     }
 
