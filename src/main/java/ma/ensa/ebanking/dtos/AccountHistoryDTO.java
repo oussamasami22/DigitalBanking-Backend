@@ -1,7 +1,9 @@
 package ma.ensa.ebanking.dtos;
 
-import java.util.List;
+import lombok.Data;
 
+import java.util.List;
+@Data
 public class AccountHistoryDTO {
     private String accountId;
     private double balance;

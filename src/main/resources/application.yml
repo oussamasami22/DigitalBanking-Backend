@@ -18,7 +18,7 @@ spring:
         format_sql: true # Formats SQL queries for better readability
 
 server:
-  port: 8084 # Application will run on port 8084
+  port: 8080 # Application will run on port 8084
 
 # Add optional logging settings for better visibility
 logging:
