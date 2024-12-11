@@ -1,4 +1,4 @@
-package ma.ensa.ebanking;
+package ma.ensa.ebanking.controllers;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +16,7 @@ public class CustumoerRestController {
     private BankAccountService bankAccountService;
     @GetMapping("/customers")
     public List<CustomerDTO> customers(){
-        return bankAccountService.lisCustomers();
+        return bankAccountService.listCustomers();
     }
 
     @GetMapping("/customers/{id}")
